@@ -1,3 +1,4 @@
+import exp from "constants";
 import { SignUpController } from "./signup-controller";
 
 describe('SignUp Controller', () => {
@@ -12,6 +13,7 @@ describe('SignUp Controller', () => {
             }
         }
         const httpResponse = sut.handle(httpRequest)
-        expect(httpResponse.statusCode).toBe(400 )         
+        expect(httpResponse.statusCode).toBe(400)
+        expect(httpResponse.body).toEqual(new Error("Missing param: name"))       
     });
 });
