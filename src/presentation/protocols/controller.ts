@@ -1,7 +1,5 @@
 import { HttpRequest, HttpResponse } from "./http";
 
-export interface Controller {
-    requiredFields?: Array<string>
-    
+export interface Controller {    
     handle (httpRequest: HttpRequest): HttpResponse
 } 
