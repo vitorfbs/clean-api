@@ -17,15 +17,6 @@ const makeEmailValidator = (): EmailValidator => {
    return new EmailValidatorStub()
 }
 
-const makeEmailValidatorWithError = (): EmailValidator => {
-    class EmailValidatorStub implements EmailValidator {
-        isValid (email: string): boolean {
-            throw new Error()
-        }
-    }
-   return new EmailValidatorStub()
-}
-
 const makeAddAccount = (): AddAccount => {
     class AddAccountStub implements AddAccount {
         async add (account: AddAccountModel): Promise<AccountModel> {
@@ -65,7 +56,7 @@ describe('SignUp Controller',  () => {
         }
         const httpResponse = await sut.handle(httpRequest)
         expect(httpResponse.statusCode).toBe(400)
-        expect(httpResponse.body).toEqual(new MissingParamError("name"))       
+        expect(httpResponse.body).toEqual(new MissingParamError("email"))       
     })
 
     test('Should return 400 if no email is provided', async () => {
