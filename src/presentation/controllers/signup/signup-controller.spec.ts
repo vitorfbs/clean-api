@@ -56,7 +56,7 @@ describe('SignUp Controller',  () => {
         }
         const httpResponse = await sut.handle(httpRequest)
         expect(httpResponse.statusCode).toBe(400)
-        expect(httpResponse.body).toEqual(new MissingParamError("thisshouldnotworkagain"))       
+        expect(httpResponse.body).toEqual(new MissingParamError("invalid"))       
     })
 
     test('Should return 400 if no email is provided', async () => {
