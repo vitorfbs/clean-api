@@ -2,3 +2,4 @@
 . "$(dirname "$0")/h"
 
 npm run test:ci
+echo $?
